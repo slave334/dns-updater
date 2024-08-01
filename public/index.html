@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Namecheap DNS Updater</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Namecheap DNS Updater</h1>
+      <form id="dnsForm">
+        <div class="form-group">
+          <label for="apiUser">API User:</label>
+          <input type="text" id="apiUser" name="apiUser" value="" required />
+        </div>
+        <div class="form-group">
+          <label for="apiKey">API Key:</label>
+          <input type="text" id="apiKey" name="apiKey" value="" required />
+        </div>
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" value="" required />
+        </div>
+        <div class="form-group">
+          <label for="clientIp">Client IP:</label>
+          <input type="text" id="clientIp" name="clientIp" value="" required />
+        </div>
+        <div class="form-group">
+          <label for="domains"
+            >Domains (comma separated):<br />
+            example: test-service1.com, test-service2.com
+          </label>
+          <textarea id="domains" name="domains" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="nameserver1">Nameserver 1:</label>
+          <input type="text" id="nameserver1" name="nameserver1" value="" required />
+        </div>
+        <div class="form-group">
+          <label for="nameserver2">Nameserver 2:</label>
+          <input type="text" id="nameserver2" name="nameserver2" value="" required />
+        </div>
+        <button type="submit">Update DNS</button>
+      </form>
+      <div id="result"></div>
+    </div>
+
+    <!-- Modal -->
+    <div id="progressModal" class="modal">
+      <div class="modal-content">
+        <h2>Updating DNS Records</h2>
+        <div id="domainList"></div>
+        <div class="progress-bar">
+          <div id="progress" class="progress"></div>
+        </div>
+        <div id="completionMessage"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
